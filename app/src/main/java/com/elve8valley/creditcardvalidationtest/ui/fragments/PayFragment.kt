@@ -18,7 +18,6 @@ import javax.inject.Inject
 class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflate) {
     @Inject
      lateinit var  cardController: CardController
-    private  var expiryDate = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         clickListener()
@@ -38,7 +37,7 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
                 binding.lname.text.toString(),
                 cardNumber,
                 binding.cvv.text.toString(),
-                expiryDate
+                binding.date.text.toString()
             )
 
         }
@@ -89,9 +88,12 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
                 binding.date.error = "Need To be Fill"
             }
             7 -> {
-                binding.cvv.error = "Need To be Fill"
+                binding.date.error = "please enter date like 12/10/2021"
             }
             8 -> {
+                binding.cvv.error = "Need To be Fill"
+            }
+            9 -> {
                 binding.cvv.error = "Please add your correct cvv number like explain in info"
             }
 
@@ -120,7 +122,7 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
 
         val dpd = DatePickerDialog(requireContext(), { _, year, monthOfYear, dayOfMonth ->
             val m = monthOfYear+1
-            expiryDate = "$dayOfMonth/$m/$year"
+           val expiryDate = "$dayOfMonth/$m/$year"
             binding.date.text = Editable.Factory.getInstance().newEditable(expiryDate)
 
         }, year, month, day)

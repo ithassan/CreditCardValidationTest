@@ -20,8 +20,9 @@ class CardModel (private val firstname:String,
             TextUtils.isEmpty(cardNum) -> 4
             !checkLuhn() -> 5
             TextUtils.isEmpty(expiryDate) -> 6
-            TextUtils.isEmpty(CVV) -> 7
-            !isValidCvv() -> 8
+            !isDateValid() -> 7
+            TextUtils.isEmpty(CVV) -> 8
+            !isValidCvv() -> 9
             else -> -1
         }
     }
@@ -59,5 +60,10 @@ class CardModel (private val firstname:String,
     override fun userNameWithAlphabets(name: String): Boolean {
         val pattern = Regex(PatternUtil.nameWithAlphabets)
         return pattern.matches(name)
+    }
+    fun isDateValid() : Boolean
+    {
+        val pattern = Regex(PatternUtil.datePattern)
+        return pattern.matches(expiryDate)
     }
 }
