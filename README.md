@@ -33,7 +33,7 @@ JSON is an open standard file format and data interchange format that uses human
 We can use JSONarry and JSONObject.
 In retrofit library we just use data to class in volley we use JSONArry and JSONObject.
 
-Git
+Git is distributed version control system every one have copy of repo. 
 Git is software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows
 We can create multiple branches and it is good when you working in team and individually.
 We can make branches according to our feature in project.
