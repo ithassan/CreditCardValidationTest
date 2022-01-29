@@ -58,7 +58,7 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
 
     private fun subScribeToAllObserver()
     {
-        //use live data instead of ICardController and ICardModel
+        
         cardController.cardValidationMessage.observe(viewLifecycleOwner) {
             updatedUI(it)
         }
