@@ -21,14 +21,15 @@
         app:cardCornerRadius="@dimen/_2sdp"
         >
         <EditText
-            android:id="@+id/fname"
+            android:id="@+id/fNameEditText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:hint="@string/first_name"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@null"
-            android:inputType="text" />
+            android:inputType="text"
+            tools:ignore="Autofill" />
 
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
@@ -38,7 +39,7 @@
         app:cardCornerRadius="@dimen/_2sdp"
         >
         <EditText
-            android:id="@+id/lname"
+            android:id="@+id/lNameEditText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_weight="0.5"
@@ -46,6 +47,8 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@null"
+            tools:ignore="Autofill"
+            android:inputType="text"
             />
 
     </com.google.android.material.card.MaterialCardView>
@@ -57,7 +60,7 @@
         app:cardCornerRadius="@dimen/_2sdp"
         >
         <EditText
-            android:id="@+id/cardnum"
+            android:id="@+id/cardNumEditText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_5sdp"
@@ -92,7 +95,7 @@
             android:weightSum="1"
             >
             <EditText
-                android:id="@+id/date"
+                android:id="@+id/dateEditText"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:hint="@string/expiry_date"
@@ -100,6 +103,7 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:background="@null"
                 android:layout_weight="0.7"
+                android:inputType="date"
                 tools:ignore="Autofill" />
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/date_btn"
@@ -120,7 +124,7 @@
         app:cardCornerRadius="@dimen/_2sdp"
         >
         <EditText
-            android:id="@+id/cvv"
+            android:id="@+id/cvvEditText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_weight="0.5"
@@ -129,6 +133,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@null"
+            tools:ignore="Autofill"
             />
 
     </com.google.android.material.card.MaterialCardView>

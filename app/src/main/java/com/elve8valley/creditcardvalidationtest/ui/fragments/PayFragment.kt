@@ -32,19 +32,19 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
             getExpiryDate()
         }
         binding.payBtn.setOnClickListener {
-            val cardNumber=binding.cardnum.text.toString()
-            cardController.onCardValidate(binding.fname.text.toString(),
-                binding.lname.text.toString(),
+            val cardNumber=binding.cardNumEditText.text.toString()
+            cardController.onCardValidate(binding.fNameEditText.text.toString(),
+                binding.lNameEditText.text.toString(),
                 cardNumber,
-                binding.cvv.text.toString(),
-                binding.date.text.toString()
+                binding.cvvEditText.text.toString(),
+                binding.dateEditText.text.toString()
             )
 
         }
 
-        binding.cardnum.addTextChangedListener(object : TextWatcher {
+        binding.cardNumEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                binding.cardtype.text = checkCardType(binding.cardnum.text.toString())
+                binding.cardtype.text = checkCardType(binding.cardNumEditText.text.toString())
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -75,34 +75,35 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
     {
         when (messageCode) {
             0 -> {
-                binding.fname.error = "Need To be Fill"
+                binding.fNameEditText.error = "Need To be Fill"
             }
             1 -> {
-                binding.lname.error = "Need To be Fill"
+                binding.fNameEditText.error = "Contain only Alphabets"
+
             }
             2 -> {
-                binding.fname.error = "Contain only Alphabets"
+                binding.lNameEditText.error = "Need To be Fill"
             }
             3 -> {
-                binding.lname.error = "Contain only Alphabets"
+                binding.lNameEditText.error = "Contain only Alphabets"
             }
             4 -> {
-                binding.cardnum.error = "Need To be Fill"
+                binding.cardNumEditText.error = "Need To be Fill"
             }
             5 -> {
-                binding.cardnum.error = "Card number is Invalid"
+                binding.cardNumEditText.error = "Card number is Invalid"
             }
             6 -> {
-                binding.date.error = "Need To be Fill"
+                binding.dateEditText.error = "Need To be Fill"
             }
             7 -> {
-                binding.date.error = "please enter date like 12/10/2021"
+                binding.dateEditText.error = "please enter date like 12/10/2021"
             }
             8 -> {
-                binding.cvv.error = "Need To be Fill"
+                binding.cvvEditText.error = "Need To be Fill"
             }
             9 -> {
-                binding.cvv.error = "Please add your correct cvv number like explain in info"
+                binding.cvvEditText.error = "Please add your correct cvv number like explain in info"
             }
             else -> {
                 showDialog()
@@ -124,11 +125,11 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
     private fun setUiToInitialState()
     {
         cardController.stopObserver = false
-        binding.fname.text =Editable.Factory.getInstance().newEditable("")
-        binding.lname.text =Editable.Factory.getInstance().newEditable("")
-        binding.cardnum.text =Editable.Factory.getInstance().newEditable("")
-        binding.date.text =Editable.Factory.getInstance().newEditable("")
-        binding.cvv.text =Editable.Factory.getInstance().newEditable("")
+        binding.fNameEditText.text =Editable.Factory.getInstance().newEditable("")
+        binding.lNameEditText.text =Editable.Factory.getInstance().newEditable("")
+        binding.cardNumEditText.text =Editable.Factory.getInstance().newEditable("")
+        binding.dateEditText.text =Editable.Factory.getInstance().newEditable("")
+        binding.cvvEditText.text =Editable.Factory.getInstance().newEditable("")
         binding.cardtype.text = ""
     }
 
@@ -143,7 +144,7 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
         val dpd = DatePickerDialog(requireContext(), { _, year, monthOfYear, dayOfMonth ->
             val m = monthOfYear+1
            val expiryDate = "$dayOfMonth/$m/$year"
-            binding.date.text = Editable.Factory.getInstance().newEditable(expiryDate)
+            binding.dateEditText.text = Editable.Factory.getInstance().newEditable(expiryDate)
 
         }, year, month, day)
 

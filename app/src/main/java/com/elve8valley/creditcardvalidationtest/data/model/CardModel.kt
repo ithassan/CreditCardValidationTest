@@ -13,8 +13,8 @@ class CardModel (private val firstname:String,
     override fun isValid() : Int {
         return when {
             TextUtils.isEmpty(firstname) -> 0
-            !userNameWithAlphabets(firstname) -> 2
-            TextUtils.isEmpty(lastName) -> 1
+            !userNameWithAlphabets(firstname) -> 1
+            TextUtils.isEmpty(lastName) -> 2
             !userNameWithAlphabets(lastName) -> 3
             TextUtils.isEmpty(cardNum) -> 4
             !checkLuhn() -> 5
