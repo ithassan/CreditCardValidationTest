@@ -1,7 +1,6 @@
 package com.elve8valley.creditcardvalidationtest.data.model
 
 import android.text.TextUtils
-import android.util.Log
 import com.elve8valley.creditcardvalidationtest.util.PatternUtil
 import com.elve8valley.creditcardvalidationtest.util.ValidationUtil
 
