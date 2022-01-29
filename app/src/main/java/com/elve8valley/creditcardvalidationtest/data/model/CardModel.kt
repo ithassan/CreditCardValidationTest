@@ -61,7 +61,7 @@ class CardModel (private val firstname:String,
         val pattern = Regex(PatternUtil.nameWithAlphabets)
         return pattern.matches(name)
     }
-    fun isDateValid() : Boolean
+    override fun isDateValid() : Boolean
     {
         val pattern = Regex(PatternUtil.datePattern)
         return pattern.matches(expiryDate)

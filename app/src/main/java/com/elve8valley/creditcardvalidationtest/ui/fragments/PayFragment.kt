@@ -5,7 +5,9 @@ import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import com.elve8valley.creditcardvalidationtest.base.BaseFragment
 import com.elve8valley.creditcardvalidationtest.controller.CardController
 import com.elve8valley.creditcardvalidationtest.databinding.PayFragmentBinding
@@ -60,8 +62,16 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
         
         cardController.cardValidationMessage.observe(viewLifecycleOwner) {
             updatedUI(it)
+
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("check","call")
+        cardController.cardValidationMessage.removeObserver {  }
+    }
+
 
     private fun updatedUI( messageCode : Int)
     {
