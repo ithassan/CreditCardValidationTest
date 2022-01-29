@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+
+    app:startDestination="@id/payFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.elve8valley.creditcardvalidationtest.ui.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/home_fragment" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.elve8valley.creditcardvalidationtest.ui.fragments.InfoFragment"
+        android:label="Info"
+        tools:layout="@layout/info_fragment" />
+    <fragment
+        android:id="@+id/payFragment"
+        android:name="com.elve8valley.creditcardvalidationtest.ui.fragments.PayFragment"
+        android:label="Pay"
+        tools:layout="@layout/pay_fragment" />
+</navigation>

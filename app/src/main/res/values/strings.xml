@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CreditCardValidationTest</string>
+    <string name="enter_your_card_detail">Enter your card detail</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="card_number">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="cvv">CVV</string>
+    <string name="pay_now">Pay Now</string>
+</resources>
