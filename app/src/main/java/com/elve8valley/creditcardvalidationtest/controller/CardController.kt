@@ -7,6 +7,7 @@ import com.elve8valley.creditcardvalidationtest.data.model.CardModel
 import javax.inject.Inject
 
 class CardController @Inject constructor() {
+    var stopObserver = false
     private val _cardValidationMessage: MutableLiveData<Int> = MutableLiveData()
     val cardValidationMessage:LiveData<Int>
         get()=_cardValidationMessage
@@ -18,6 +19,7 @@ class CardController @Inject constructor() {
                         CVV: String,
                         expiryDate:String)
     {
+        stopObserver = true
         cardModel = CardModel(firstname,lastName,cardNum,CVV,expiryDate)
         val valid = cardModel.isValid()
         _cardValidationMessage.value = valid

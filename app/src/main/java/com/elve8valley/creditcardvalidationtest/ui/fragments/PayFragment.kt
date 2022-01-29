@@ -61,15 +61,15 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
     {
         
         cardController.cardValidationMessage.observe(viewLifecycleOwner) {
-            updatedUI(it)
+            if(cardController.stopObserver)
+                updatedUI(it)
 
         }
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("check","call")
-        cardController.cardValidationMessage.removeObserver {  }
+        cardController.stopObserver = false
     }
 
 
@@ -106,7 +106,6 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
             9 -> {
                 binding.cvv.error = "Please add your correct cvv number like explain in info"
             }
-
             else -> {
                 showDialog()
             }
@@ -121,7 +120,20 @@ class PayFragment : BaseFragment<PayFragmentBinding>(PayFragmentBinding ::inflat
             .setPositiveButton("Done") { dialog, which ->
                 dialog.dismiss()
             }.show()
+    setUiToInitialState()
     }
+
+    private fun setUiToInitialState()
+    {
+        cardController.stopObserver = false
+        binding.fname.text =Editable.Factory.getInstance().newEditable("")
+        binding.lname.text =Editable.Factory.getInstance().newEditable("")
+        binding.cardnum.text =Editable.Factory.getInstance().newEditable("")
+        binding.date.text =Editable.Factory.getInstance().newEditable("")
+        binding.cvv.text =Editable.Factory.getInstance().newEditable("")
+        binding.cardtype.text = ""
+    }
+
     private fun getExpiryDate()
     {
         val c = Calendar.getInstance()
